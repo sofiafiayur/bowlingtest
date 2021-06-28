@@ -1,0 +1,50 @@
+.container {
+    padding: 5px 20px 5px 20px;
+    margin: 0px 15px 0px 15px;
+}
+
+.frameTable {
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-collapse: collapse;
+}
+
+.tableHeaderCell {
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.tableCell {
+    width: 158px;
+    padding: 0px, 24px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.tabTableCell {
+    width: 158px;
+    padding: 0px, 24px;
+    text-align: center;
+}
+
+.bowlingTable {
+    display: grid;
+    overflow: auto;
+}
+
+.title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 15%;
+    text-align: center;
+    font-weight: 800;
+    font-family: cursive;
+}
+
+.strike {
+    background-color: #ffcdd2;
+}
+
+.spare {
+    background-color: #ffebee;
+}

@@ -1,0 +1,84 @@
+
+<div class="container">
+  <div class="title">
+    <h1 style="display: contents; font-weight: 800; font-family: cursive;">
+      Bowling Game</h1>
+  </div>
+  <div class="buttonRow">
+    <button mat-button color="primary" (click)="refreshRollsSData()">
+      <mat-icon>autorenew</mat-icon>New game
+    </button>
+  </div>
+  <div *ngIf="!loadingA" class="bowlingTable">
+    <table class="frameTable">
+      <thead class="borderBottom" style="background-color: #fafafa;">
+          <th class="tableHeaderCell">Frame number</th>
+          <th *ngFor="let frameNum of frames; index as i" class="tableHeaderCell">Frame {{frameNum}}</th>
+      </thead>
+      <tbody>
+        <tr class="borderBottom">
+          <td class="tableCell">Roll</td>
+          <td *ngFor="let rolls of framesRolls" [ngClass]="rolls.status + ' tableCell'">
+            {{rolls.roll1}}, {{rolls.roll2}} {{rolls.roll3 === undefined ? '' : ',' + rolls.roll3}} {{rolls.roll4 === undefined ? '' : ',' + rolls.roll4}}
+          </td>
+        </tr>
+        <tr class="borderBottom">
+          <td class="tableCell">Frame score</td>
+          <td *ngFor="let score of scores" class="tableCell">{{score}}</td>
+        </tr>
+        <tr>
+          <td class="tableCell">Accumulated score</td>
+          <td *ngFor="let accmltScore of accmltScores" class="tableCell">{{accmltScore}}</td>
+        </tr>
+    
+      </tbody>
+    
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="buttonRow">
+    <button mat-button color="primary" (click)="resetManualData()">
+      <mat-icon>autorenew</mat-icon>One more game?
+    </button>
+  </div>
+  <mat-tab-group #tab [backgroundColor]="'accent'" (selectedIndexChange)="selectedIndexChange($event)">
+    <mat-tab label="Frame number" disabled>
+      Please click on Tab in the order shown...
+    </mat-tab>
+    <mat-tab *ngFor="let i of frames" label="Frame {{i}}">
+      <div *ngIf="!loadingS" class="bowlingTable">
+        <table class="frameTable">
+          <tbody>
+            <tr class="borderBottom">
+              <div style="padding: 0px 24; border-bottom: 1px solid rgba(0,0,0,.2);">
+                <td class="tabTableCell">Roll</td>
+                <td *ngFor="let frame of manualFrames" [ngClass]="frame.status + ' tabTableCell'">
+                  {{frame.roll1}}, {{frame.roll2}} {{frame.roll3 === undefined ? '' : ',' + frame.roll3}} {{frame.roll4 === undefined ? '' : ',' + frame.roll4}}
+                </td>
+              </div>
+            </tr>
+            <tr class="borderBottom">
+              <div style="padding: 0px 24; border-bottom: 1px solid rgba(0,0,0,.2);">
+                <td class="tabTableCell">Frame score</td>
+                <td *ngFor="let score of manualScores" class="tabTableCell">{{score}}</td>
+              </div>
+            </tr>
+            <tr>
+              <div style="padding: 0px 24;">
+                <td class="tabTableCell">Accumulated score</td>
+                <td *ngFor="let accmltScore of manualAccmltScores" class="tabTableCell">{{accmltScore}}</td>
+              </div>
+            </tr>
+        
+          </tbody>
+        
+        </table>
+      </div>
+    </mat-tab>
+    <!-- <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab> -->
+  </mat-tab-group>
+
+</div>
