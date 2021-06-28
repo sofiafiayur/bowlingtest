@@ -1,5 +1,18 @@
 # BowlingTest
 
+The Game is composed by 2 parts.
+
+1. the upper table is implemented the methords I created in last test.
+which the all the data is creat when initializing the component.
+the button 'New game' is for refreshing the table
+
+2. the second table is created without initializing all the data.
+the data should be created by clicking on the tab in the order shown.
+the button 'One more game?' is for resetting all the data and tab to play again.
+
+# Installation
+ need npm instal this folder.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
 ## Development server
